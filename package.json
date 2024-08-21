@@ -1,0 +1,33 @@
+{
+	"name": "devop-slack-bot",
+	"version": "0.0.1",
+	"description": "this Slackbot allow internal team chat with openAI from Slack",
+	"main": "./src/app.js",
+	"type": "module",
+	"scripts": {
+		"start": "NODE_ENV=production node .",
+		"dev": "NODE_ENV=development docker-compose --env-file .env.development up -d && nodemon .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"devops",
+		"slacks",
+		"docker",
+		"gcp",
+		"openai",
+		"cloud",
+		"bolt"
+	],
+	"author": "kris",
+	"license": "ISC",
+	"dependencies": {
+		"@slack/bolt": "^3.21.1",
+		"@slack/types": "^2.12.0",
+		"dotenv": "^16.4.5",
+		"express": "^4.19.2",
+		"openai": "^4.52.7"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.4"
+	}
+}

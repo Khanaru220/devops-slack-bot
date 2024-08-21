@@ -1,0 +1,9 @@
+#waiting Van Huynh help on populate var env
+version: 2
+
+log: stdout
+
+tunnels:
+  httpbin:
+    proto: http
+    addr: http://host.docker.internal:${POST}

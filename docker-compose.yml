@@ -1,0 +1,11 @@
+services:
+  ngrok:
+    image: ngrok/ngrok:latest
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command:
+      - 'http'
+      - '--domain=bee-active-hare.ngrok-free.app'
+      - 'host.docker.internal:8080' #forward traffic to localhost port
+    ports:
+      - 4040:4040 #enalbe inspecting on ngrok dashboard

@@ -1,7 +1,7 @@
 import { generateQRLink } from '../utils/generateQRLink.js';
 import { usersData, findUserBySlackUID } from '../data/index.js';
 
-const registerGreetingFunction = (app) => {
+const stepGenerateQR = (app) => {
 	try {
 		app.function(
 			'sample_custom_step',
@@ -12,9 +12,11 @@ const registerGreetingFunction = (app) => {
 
 					const { accountName, accountNumber, bankBinCode } =
 						findUserBySlackUID(usersData, accountOwnerSlackUID);
-
+					// total user
+					// bill
 					await complete({
 						outputs: {
+							priceMessage: amount ? `*Amount*: ${amount}đ/person\n` : '',
 							message: generateQRLink({
 								accountName,
 								accountNumber,
@@ -39,4 +41,5 @@ const registerGreetingFunction = (app) => {
 	}
 };
 
-export default registerGreetingFunction;
+export default stepGenerateQR;
+console

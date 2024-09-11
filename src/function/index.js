@@ -1,5 +1,5 @@
-import registerGreetingFunction from './greetingFunction.js';
+import stepGenerateQR from './stepGenerateQR.js';
 
 export const registerFunctions = (app) => {
-	registerGreetingFunction(app);
+	stepGenerateQR(app);
 };

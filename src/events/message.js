@@ -87,3 +87,4 @@ const registerMessageEvent = (app) => {
 };
 
 export default registerMessageEvent;
+console

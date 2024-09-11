@@ -30,19 +30,24 @@ const registerMessageEvent = (app) => {
 		const systemPrompt = composeBlockMessageForOpenAI({
 			role: 'system',
 			text: `${
-				personaConfig.prompt ? `# INSTRUCTION:\n${personaConfig.prompt}` : ''
+				personaConfig.prompt
+					? `# INSTRUCTION:\n${personaConfig.prompt}`
+					: '# INSTRUCTION:\nYou are an expert in explaining concepts in simple, clear language. Provide concise and straightforward answers to questions, ensuring a keen understanding of the topic.'
 			}
 			${
 				personaConfig.knowledge
 					? `# ABOUT YOUR PARTNER:\n${personaConfig.knowledge}`
-					: ''
+					: '# ABOUT YOUR PARTNER:\nValues understanding and clarity'
 			}
 			${
 				personaConfig.language
 					? `# RULES:
 			- Always answer in ${personaConfig.language}
 			------`
-					: ''
+					: `- Avoid jargon or technical terms unless they are clearly defined.
+					- Provide examples to illustrate complex ideas simply.
+					- Encourage questions to ensure clarity
+					-----------`
 			}
 			`,
 		});
@@ -87,4 +92,3 @@ const registerMessageEvent = (app) => {
 };
 
 export default registerMessageEvent;
-console
